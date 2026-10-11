@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp44qlr35vtu"]
+
+[ext_resource type="PackedScene" uid="uid://dfxs3r7kr8bvh" path="res://ponger.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Ponger" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(1, -5)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 115.0
+offset_top = -22.0
+offset_right = 155.0
+offset_bottom = 18.0
+
+[node name="Camera2D" type="Camera2D" parent="ColorRect"]

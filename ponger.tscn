@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfxs3r7kr8bvh"]
+
+[ext_resource type="Script" uid="uid://dkfvvr1auvyic" path="res://ponger.gd" id="1_sufm3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18knt"]
+radius = 7.0
+height = 88.0
+
+[node name="Ponger" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_sufm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_18knt")
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
+offset_left = -6.0
+offset_top = -41.0
+offset_right = 6.0
+offset_bottom = 39.0
