@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp44qlr35vtu"]
+[gd_scene load_steps=6 format=3 uid="uid://dp44qlr35vtu"]
 
 [ext_resource type="PackedScene" uid="uid://dfxs3r7kr8bvh" path="res://ponger_1.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://rl2g4jdn0pm0" path="res://ponger_2.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://di24d7wpuiqad" path="res://ball.tscn" id="3_h2yge"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0xm2m"]
+distance = -2.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0xm2m"]
+a = Vector2(-812, 0)
+b = Vector2(718, 0)
 
 [node name="Main" type="Node2D"]
 
@@ -15,6 +21,7 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Bottom_Boundary"]
+position = Vector2(0, 3)
 shape = SubResource("WorldBoundaryShape2D_0xm2m")
 
 [node name="Upper_Boundary2" type="StaticBody2D" parent="Boundaries"]
@@ -23,7 +30,8 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Upper_Boundary2"]
-shape = SubResource("WorldBoundaryShape2D_0xm2m")
+position = Vector2(0, -5)
+shape = SubResource("SegmentShape2D_0xm2m")
 
 [node name="Ponger1" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(3, -7)
@@ -33,8 +41,14 @@ offset_left = 545.0
 offset_top = -21.0
 offset_right = 585.0
 offset_bottom = 19.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="ColorRect"]
 
 [node name="Ponger_2" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(1094, -17)
+
+[node name="Ball" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(551, -17)
+
+[node name="Camera2D" type="Camera2D" parent="Ball"]
