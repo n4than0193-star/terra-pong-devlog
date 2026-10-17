@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Terra-Pong"
-run/main_scene="uid://dp44qlr35vtu"
+run/main_scene="uid://c1niip72u6qns"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalVariables="*res://global_variables.gd"
+GlobalVariables="*res://Scripts/global_variables.gd"
+SceneTransition="*res://Scenes/transition.tscn"
 
 [editor_plugins]
 

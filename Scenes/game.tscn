@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp44qlr35vtu"]
+[gd_scene load_steps=13 format=3 uid="uid://dp44qlr35vtu"]
 
-[ext_resource type="Script" uid="uid://c168pp7u7pwuo" path="res://left_boundary.gd" id="1_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://dfxs3r7kr8bvh" path="res://ponger_1.tscn" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://csnf7mdbnv32o" path="res://global_variables.gd" id="1_lquwl"]
-[ext_resource type="PackedScene" uid="uid://rl2g4jdn0pm0" path="res://ponger_2.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://bmk3n7g1iu2xq" path="res://right_boundary.gd" id="3_7mycd"]
-[ext_resource type="PackedScene" uid="uid://di24d7wpuiqad" path="res://ball.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://wbe24lvw4yo1" path="res://left_score.gd" id="7_272bh"]
-[ext_resource type="Script" uid="uid://hd16mli5q6u6" path="res://right_scorer.gd" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://bxxfwnspw1gc3" path="res://Scripts/game.gd" id="1_ldgsr"]
+[ext_resource type="Script" uid="uid://csnf7mdbnv32o" path="res://Scripts/global_variables.gd" id="1_v158k"]
+[ext_resource type="Script" uid="uid://c168pp7u7pwuo" path="res://Scripts/left_boundary.gd" id="2_h4fw4"]
+[ext_resource type="Script" uid="uid://bmk3n7g1iu2xq" path="res://Scripts/right_boundary.gd" id="3_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://dfxs3r7kr8bvh" path="res://Scenes/ponger_1.tscn" id="4_o5yvi"]
+[ext_resource type="PackedScene" uid="uid://rl2g4jdn0pm0" path="res://Scenes/ponger_2.tscn" id="5_rku1e"]
+[ext_resource type="PackedScene" uid="uid://di24d7wpuiqad" path="res://Scenes/ball.tscn" id="6_rfjv2"]
+[ext_resource type="Script" uid="uid://wbe24lvw4yo1" path="res://Scripts/left_score.gd" id="7_1phco"]
+[ext_resource type="Script" uid="uid://hd16mli5q6u6" path="res://Scripts/right_scorer.gd" id="8_nb51f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(1523, 8)
@@ -20,10 +21,11 @@ b = Vector2(718, 0)
 size = Vector2(397, 792)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_ldgsr")
 
 [node name="Boundaries" type="Node2D" parent="."]
 position = Vector2(529, 290)
-script = ExtResource("1_lquwl")
+script = ExtResource("1_v158k")
 
 [node name="Bottom_Boundary" type="StaticBody2D" parent="Boundaries"]
 collision_layer = 4
@@ -46,7 +48,7 @@ shape = SubResource("SegmentShape2D_0xm2m")
 position = Vector2(-657, -301)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_1bvp3")
+script = ExtResource("2_h4fw4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Left_Boundary"]
 position = Vector2(-92.5, 18)
@@ -56,7 +58,7 @@ shape = SubResource("RectangleShape2D_lquwl")
 position = Vector2(-579, -301)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("3_7mycd")
+script = ExtResource("3_ldgsr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Right_Boundary"]
 position = Vector2(1357, 19)
@@ -64,13 +66,13 @@ shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Paddles" type="Node2D" parent="."]
 
-[node name="Ponger_1" parent="Paddles" instance=ExtResource("1_ig7tw")]
+[node name="Ponger_1" parent="Paddles" instance=ExtResource("4_o5yvi")]
 position = Vector2(3, -7)
 
-[node name="Ponger_2" parent="Paddles" instance=ExtResource("2_0xm2m")]
+[node name="Ponger_2" parent="Paddles" instance=ExtResource("5_rku1e")]
 position = Vector2(1094, -17)
 
-[node name="Ball" parent="." instance=ExtResource("3_h2yge")]
+[node name="Ball" parent="." instance=ExtResource("6_rfjv2")]
 position = Vector2(546, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Ball"]
@@ -84,14 +86,14 @@ offset_left = 444.0
 offset_top = -296.0
 offset_right = 633.0
 offset_bottom = -207.0
-script = ExtResource("7_272bh")
+script = ExtResource("7_1phco")
 
 [node name="Right_Scorer" type="Label" parent="Scorers"]
 offset_left = 649.0
 offset_top = -296.0
 offset_right = 838.0
 offset_bottom = -207.0
-script = ExtResource("8_5vw27")
+script = ExtResource("8_nb51f")
 
 [connection signal="body_entered" from="Boundaries/Left_Boundary" to="Boundaries/Left_Boundary" method="_on_body_entered"]
 [connection signal="body_entered" from="Boundaries/Right_Boundary" to="Boundaries/Right_Boundary" method="_on_body_entered"]

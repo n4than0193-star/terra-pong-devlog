@@ -13,3 +13,5 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if linear_velocity != Vector2.ZERO:
 		linear_velocity = linear_velocity.normalized() * speed
+		
+	rotation = 0
