@@ -1,5 +1,8 @@
 extends Node2D
 
+func _process(delta: float) -> void:
+	$Bg/AnimationPlayer.play("main_menu")
+
 func _on_start_pressed() -> void:
 	SceneTransition.change_scene("res://Scenes/game.tscn")
 

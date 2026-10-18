@@ -1,14 +1,77 @@
-[gd_scene load_steps=13 format=3 uid="uid://dp44qlr35vtu"]
+[gd_scene load_steps=28 format=3 uid="uid://dp44qlr35vtu"]
 
 [ext_resource type="Script" uid="uid://bxxfwnspw1gc3" path="res://Scripts/game.gd" id="1_ldgsr"]
 [ext_resource type="Script" uid="uid://csnf7mdbnv32o" path="res://Scripts/global_variables.gd" id="1_v158k"]
 [ext_resource type="Script" uid="uid://c168pp7u7pwuo" path="res://Scripts/left_boundary.gd" id="2_h4fw4"]
+[ext_resource type="Texture2D" uid="uid://ucvo7gf006dr" path="res://Art/bg.png" id="2_ldgsr"]
 [ext_resource type="Script" uid="uid://bmk3n7g1iu2xq" path="res://Scripts/right_boundary.gd" id="3_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://dfxs3r7kr8bvh" path="res://Scenes/ponger_1.tscn" id="4_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://rl2g4jdn0pm0" path="res://Scenes/ponger_2.tscn" id="5_rku1e"]
 [ext_resource type="PackedScene" uid="uid://di24d7wpuiqad" path="res://Scenes/ball.tscn" id="6_rfjv2"]
 [ext_resource type="Script" uid="uid://wbe24lvw4yo1" path="res://Scripts/left_score.gd" id="7_1phco"]
 [ext_resource type="Script" uid="uid://hd16mli5q6u6" path="res://Scripts/right_scorer.gd" id="8_nb51f"]
+[ext_resource type="Texture2D" uid="uid://c6kmbgrf4ky6h" path="res://Art/numbers1.png" id="9_o5yvi"]
+[ext_resource type="Texture2D" uid="uid://be5lktnw3hk31" path="res://Art/numbers2.png" id="10_85qyi"]
+[ext_resource type="Texture2D" uid="uid://dla831vqd6iwk" path="res://Art/numbers3.png" id="11_iivbl"]
+[ext_resource type="Texture2D" uid="uid://ctq0pw4jxlbix" path="res://Art/numbers4.png" id="12_7nbq1"]
+[ext_resource type="Texture2D" uid="uid://b6w5yl2kj0j7g" path="res://Art/numbers5.png" id="13_exi56"]
+[ext_resource type="Texture2D" uid="uid://fmdid0bm2dvb" path="res://Art/numbers6.png" id="14_7t8sx"]
+[ext_resource type="Texture2D" uid="uid://3cmlhj6rddyh" path="res://Art/numbers7.png" id="15_mg4q0"]
+[ext_resource type="Texture2D" uid="uid://225jd3aerh2p" path="res://Art/numbers8.png" id="16_vm72l"]
+
+[sub_resource type="Animation" id="Animation_opfnp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(572, 177)]
+}
+
+[sub_resource type="Animation" id="Animation_n45e2"]
+resource_name = "bg"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(624, -95), Vector2(424, 195), Vector2(692, -95)]
+}
+
+[sub_resource type="Animation" id="Animation_1ehe0"]
+resource_name = "main_menu"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(667, 147), Vector2(468, 439), Vector2(667, 147)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cp0ys"]
+_data = {
+&"RESET": SubResource("Animation_opfnp"),
+&"bg": SubResource("Animation_n45e2"),
+&"main_menu": SubResource("Animation_1ehe0")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(1523, 8)
@@ -20,8 +83,82 @@ b = Vector2(718, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(397, 792)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_22asu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_o5yvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_85qyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iivbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7nbq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_exi56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7t8sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mg4q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_vm72l")
+}],
+"loop": true,
+"name": &"Scores",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85qyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_o5yvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_85qyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iivbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7nbq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_exi56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7t8sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mg4q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_vm72l")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ldgsr")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(572, 177)
+scale = Vector2(8.99375, 9.2375)
+texture = ExtResource("2_ldgsr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg"]
+libraries = {
+&"": SubResource("AnimationLibrary_cp0ys")
+}
 
 [node name="Boundaries" type="Node2D" parent="."]
 position = Vector2(529, 290)
@@ -81,19 +218,19 @@ drag_vertical_enabled = true
 
 [node name="Scorers" type="Node2D" parent="."]
 
-[node name="Left_Scorer" type="Label" parent="Scorers"]
-offset_left = 444.0
-offset_top = -296.0
-offset_right = 633.0
-offset_bottom = -207.0
-script = ExtResource("7_1phco")
-
-[node name="Right_Scorer" type="Label" parent="Scorers"]
-offset_left = 649.0
-offset_top = -296.0
-offset_right = 838.0
-offset_bottom = -207.0
+[node name="RightScorer" type="AnimatedSprite2D" parent="Scorers"]
+position = Vector2(689.882, -221.985)
+scale = Vector2(7.76477, 7.62687)
+sprite_frames = SubResource("SpriteFrames_22asu")
+animation = &"Scores"
 script = ExtResource("8_nb51f")
+
+[node name="LeftScorer" type="AnimatedSprite2D" parent="Scorers"]
+position = Vector2(444, -222)
+scale = Vector2(7.76162, 7.4959)
+sprite_frames = SubResource("SpriteFrames_85qyi")
+animation = &"new_animation"
+script = ExtResource("7_1phco")
 
 [connection signal="body_entered" from="Boundaries/Left_Boundary" to="Boundaries/Left_Boundary" method="_on_body_entered"]
 [connection signal="body_entered" from="Boundaries/Right_Boundary" to="Boundaries/Right_Boundary" method="_on_body_entered"]

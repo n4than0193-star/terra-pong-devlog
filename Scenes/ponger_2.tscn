@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://rl2g4jdn0pm0"]
+[gd_scene load_steps=4 format=3 uid="uid://rl2g4jdn0pm0"]
 
 [ext_resource type="Script" uid="uid://cmlsur4uc6xmi" path="res://Scripts/ponger_2.gd" id="1_kvcjv"]
+[ext_resource type="Texture2D" uid="uid://htsf5412vfqy" path="res://Art/Ponger_2.png" id="2_qfx3p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18knt"]
-radius = 7.0
-height = 176.0
+radius = 27.0
+height = 204.0
 
 [node name="Ponger_2" type="Node2D"]
 
@@ -12,13 +13,11 @@ height = 176.0
 collision_mask = 6
 script = ExtResource("1_kvcjv")
 
-[node name="Paddle2Hitbox" type="CollisionShape2D" parent="Paddle2"]
-position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_18knt")
+[node name="Ponger2" type="Sprite2D" parent="Paddle2"]
+position = Vector2(-3, 4)
+scale = Vector2(6.57813, 7.54688)
+texture = ExtResource("2_qfx3p")
 
-[node name="ColorRect" type="ColorRect" parent="Paddle2"]
-offset_left = -6.0
-offset_top = -83.0
-offset_right = 5.0
-offset_bottom = 89.0
-metadata/_edit_use_anchors_ = true
+[node name="Paddle2Hitbox" type="CollisionShape2D" parent="Paddle2"]
+position = Vector2(-4, 5)
+shape = SubResource("CapsuleShape2D_18knt")

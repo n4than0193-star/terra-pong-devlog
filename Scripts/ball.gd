@@ -9,9 +9,8 @@ func _ready() -> void:
 	physics_material_override = material
 	
 	linear_velocity = Vector2(300, 200).normalized() * speed
+	
 
 func _physics_process(delta: float) -> void:
-	if linear_velocity != Vector2.ZERO:
-		linear_velocity = linear_velocity.normalized() * speed
-		
-	rotation = 0
+		if linear_velocity != Vector2.ZERO:
+			linear_velocity = linear_velocity.normalized() * speed
