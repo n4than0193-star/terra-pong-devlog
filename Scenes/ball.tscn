@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dirfp0k1y1w8a" path="res://Art/Ball.png" id="2_ij5cq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_376qj"]
-radius = 12.5399
+radius = 17.0
 
 [node name="Ball" type="Node2D"]
 
@@ -17,10 +17,10 @@ can_sleep = false
 script = ExtResource("1_x8fbi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(13.5, 12)
+position = Vector2(18, 17)
 shape = SubResource("CircleShape2D_376qj")
 
 [node name="Ball" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(13, 12)
-scale = Vector2(0.90625, 0.875)
+position = Vector2(17.75, 16.5862)
+scale = Vector2(1.20313, 1.16164)
 texture = ExtResource("2_ij5cq")

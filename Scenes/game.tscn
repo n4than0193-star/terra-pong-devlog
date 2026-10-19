@@ -204,10 +204,10 @@ shape = SubResource("RectangleShape2D_lquwl")
 [node name="Paddles" type="Node2D" parent="."]
 
 [node name="Ponger_1" parent="Paddles" instance=ExtResource("4_o5yvi")]
-position = Vector2(3, -7)
+position = Vector2(20, -7)
 
 [node name="Ponger_2" parent="Paddles" instance=ExtResource("5_rku1e")]
-position = Vector2(1094, -17)
+position = Vector2(1073, -17)
 
 [node name="Ball" parent="." instance=ExtResource("6_rfjv2")]
 position = Vector2(546, 0)
